@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+  "integrationFolder": "./cypress/integration/",
+  "baseUrl": "https://mobile.carol.ai/totvsbrasil/apps/dev/carolclockinweb/3.31.2/index.html",
+  "pluginsFile": "cypress/plugins/index.js",
+  "video": false,
+  "experimentalInteractiveRunEvents": true,
+  "reporter": "cypress-multi-reporters",
+  "defaultCommandTimeout": 10000,
+  "requestTimeout": 10000,
+  "responseTimeout": 300000,
+  "screenshotOnRunFailure": false,
+  "screenshotOnRunPass": false,
+  "projectId": "2tqsgj"
+}

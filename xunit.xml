@@ -1,0 +1,24 @@
+<testsuite name="Mocha Tests" tests="1" failures="0" errors="1" skipped="0" timestamp="Fri, 13 Aug 2021 21:12:49 GMT" time="21.35">
+<testcase classname="Reconhecimento facial do Clockin WEB" name="Clock-in por reconhecimento facial" time="0"><failure>Timed out retrying after 10000ms: Expected to find element: &#x60;canvas#snapshot&#x60;, but never found it.
+AssertionError: Timed out retrying after 10000ms: Expected to find element: &#x60;canvas#snapshot&#x60;, but never found it.
+    [5]&#x3C;/Clockin&#x3C;/Clockin.prototype.getToolCam@https://mobile.carol.ai/__cypress/tests?p=cypress\integration\feature\facial-recogition.feature:396:37
+    [9]&#x3C;/&#x3C;@https://mobile.carol.ai/__cypress/tests?p=cypress\integration\feature\facial-recogition.feature:554:13
+    resolveAndRunStepDefinition@https://mobile.carol.ai/__cypress/tests?p=cypress\integration\feature\facial-recogition.feature:11068:29
+    stepTest/&#x3C;@https://mobile.carol.ai/__cypress/tests?p=cypress\integration\feature\facial-recogition.feature:10400:35
+    getRet@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:136188:20
+    tryCatcher@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:10798:23
+    ../../node_modules/bluebird/js/release/method.js/module.exports/Promise.try@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:8072:29
+    thenFn@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:136206:20
+    then@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:136645:21
+    wrapByType/&#x3C;@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:151764:21
+    runCommand/&#x3C;@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:151172:15
+    tryCatcher@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:10798:23
+    ../../node_modules/bluebird/js/release/promise.js/&#x3C;/module.exports/Promise.prototype._settlePromiseFromHandler@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:8733:31
+    ../../node_modules/bluebird/js/release/promise.js/&#x3C;/module.exports/Promise.prototype._settlePromise@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:8790:18
+    ../../node_modules/bluebird/js/release/promise.js/&#x3C;/module.exports/Promise.prototype._settlePromiseCtx@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:8827:10
+    _drainQueueStep@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:5509:12
+    _drainQueue@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:5498:24
+    ../../node_modules/bluebird/js/release/async.js/&#x3C;/Async.prototype._drainQueues@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:5514:16
+    Async/this.drainQueues@https://mobile.carol.ai/__cypress/runner/cypress_runner.js:5384:14
+</failure></testcase>
+</testsuite>

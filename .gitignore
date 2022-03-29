@@ -1,0 +1,9 @@
+
+/cypress/fixtures/videos
+
+/cypress/cucumber-json
+
+/node_modules
+
+/reports
+
