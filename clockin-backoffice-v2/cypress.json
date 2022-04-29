@@ -1,0 +1,13 @@
+{
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reportDir": "cypress/report/mochawesome-report",
+      "overwrite": true,
+      "html": true,
+      "json": false,
+      "timestamp": "mmddyyyy-HHMMss"
+    },
+    "projectId": "b5k45n",
+    "baseUrl":"https://totvsclockin.carol.ai/auth/login?env=totvsqa&redirect=%2Ftotvsqa%2Fcarol-ui%2Fhome"
+  }
+  
