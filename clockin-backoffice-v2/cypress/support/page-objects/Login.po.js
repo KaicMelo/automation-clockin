@@ -11,13 +11,16 @@ class LoginPage {
     }
 
     // Clica no botão que acessa a página de login do site
-    clicarBotaoPaginaLogin() {
+    digitandoLoginInvalido(emailFake,password) {
+        cy.get(loginElements.email()).type(emailFake);
+        cy.get(loginElements.password()).type(password, { log: false });
+
         cy.get(loginElements.botaoLogin()).click()
     }
-  
+
     // Verifica se o botão tem o texto "Esqueceu sua senha?"
-    visualizarBotaoRecuperarSenha() {
-        cy.get(loginElements.botaoRecuperarSenha()).should('contain', 'Esqueceu sua senha?')
+    visualizarLoginInvalido() {
+        cy.contains(loginElements.gateError(), 'Incorrect login was used.').should('be.visible');
     }
 }
 

@@ -8,11 +8,10 @@
       "timestamp": "mmddyyyy-HHMMss"
     },
     "integrationFolder": "./cypress/integration/",
-    "pluginsFile": "cypress/plugins/index.ts",
+    "pluginsFile": "cypress/plugins/index.js",
     "viewportWidth": 1366,
     "viewportHeight": 768,
     "defaultCommandTimeout": 10000,
-    "projectId": "b5k45n",
-    "baseUrl":"https://totvsclockin.carol.ai/auth/login?env=totvsqa&redirect=%2Ftotvsqa%2Fcarol-ui%2Fhome"
+    "baseUrl":"https://clockin.carol.ai/clockinqas/apps/dev/devbo/1.0.0/index.html"
   }
   
