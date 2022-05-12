@@ -1,6 +1,8 @@
 
 class UtilsSelectors {
-    title = () => { return '#title' }
-  }
-  
-  export default UtilsSelectors;
+  li = () => { return 'li' }
+
+  p = () => { return 'p' }
+}
+
+export default UtilsSelectors;
