@@ -10,13 +10,21 @@
     "test:chrome": "cypress run --browser chrome --no-exit"
   },
   "cypress-cucumber-preprocessor": {
-    "step_definitions": "cypress/support/step-definitions"
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "./cypress/support/step-definitions/",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mochawesome": "^7.1.3"
+    "mochawesome": "^7.1.3",
+    "tsify": "^5.0.4"
   },
   "devDependencies": {
     "@types/cypress-cucumber-preprocessor": "^4.0.1",

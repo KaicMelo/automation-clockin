@@ -22,6 +22,9 @@ module.exports = (on, config) => {
 }
 
 const cucumber = require('cypress-cucumber-preprocessor').default;
-module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
+const browserify = require("@cypress/browserify-preprocessor");
+
+module.exports = (on) => {
+  const options = browserify.defaultOptions;
+  on("file:preprocessor", cucumber(options));
 }

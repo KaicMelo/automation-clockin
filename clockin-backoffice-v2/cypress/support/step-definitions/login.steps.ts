@@ -1,6 +1,11 @@
 /* global Given, Then, When */
+/// <reference types='cypress' />
 
-import LoginPage from '../page-objects/Login.po'
+// Import Cucumber prefix
+import { Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
+
+
+import LoginPage from '../page-objects/login.page'
 const loginPage = new LoginPage
 
 const email = Cypress.env('email');
@@ -54,3 +59,15 @@ Then("devo visualizar mensagem de email invalido", () => {
 Then("devo visualizar mensagem de instrucoes no email", () => {
     loginPage.visualizarInstrucoesNoEmail();
 })
+
+// function When(arg0: string, arg1: () => void) {
+//     throw new Error('Function not implemented.');
+// }
+// function Given(arg0: string, arg1: () => void) {
+//     throw new Error('Function not implemented.');
+// }
+
+// function Then(arg0: string, arg1: () => void) {
+//     throw new Error('Function not implemented.');
+// }
+
