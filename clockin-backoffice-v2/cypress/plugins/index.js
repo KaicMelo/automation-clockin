@@ -16,11 +16,8 @@
 
 const path = require('path');
 const cucumber = require('cypress-cucumber-preprocessor').default
-const browserify = require('@cypress/browserify-preprocessor')
-const set = require('lodash').set;
-const unzip = require('extract-zip')
+const browserify = require('@cypress/browserify-preprocessor');
 const fs = require('fs')
-
 let browserName = '';
 let specName = '';
 
@@ -59,25 +56,6 @@ module.exports = (on, config) => {
     createFolder('cypress/results/json/screenshots');
     createFolder(`cypress/results/json/screenshots/${browserName}`);
     createFolder('cypress/fixtures/videos')
-
-    //unzip videos
-    return extract().then(() => {
-      //set a browser options
-      if (browser.family === 'chromium' && browser.name !== 'electron') {
-        launchOptions.args.push('--use-fake-ui-for-media-stream');
-        launchOptions.args.push('--use-fake-device-for-media-stream');
-        launchOptions.args.push(`--use-file-for-fake-video-capture=${path.resolve(__dirname, '../', `fixtures/videos/${(getVideo(specName))}`)}`);
-        set(launchOptions.preferences.default, 'profile.managed_default_content_settings.geolocation', 1);
-        return launchOptions
-      } else if (browser.family === 'firefox') {
-        launchOptions.preferences['permissions.default.geo'] = 1;
-        launchOptions.preferences['permissions.default.geolocation'] = 1;
-        launchOptions.preferences['permissions.default.camera'] = 1;
-        launchOptions.preferences['media.navigator.streams.fake'] = true;
-        launchOptions.preferences['media.navigator.permission.disabled'] = true;
-        return launchOptions
-      }
-    })
   });
 
   on('after:run', function (results) {
@@ -131,37 +109,5 @@ module.exports = (on, config) => {
 function createFolder(folder) {
   if (!fs.existsSync(folder)) {
     fs.mkdirSync(folder);
-  }
-}
-
-//unzip video
-async function extract() {
-  const zipPath = `${path.resolve(__dirname, '../', 'fixtures/zips')}/`
-  const videoPath = `${path.resolve(__dirname, '../', 'fixtures/videos')}/`
-  const listZip = fs.readdirSync(zipPath)
-
-  for (const name of listZip) {
-    await unzip(`${path.resolve(zipPath, name)}`, { dir: zipPath })
-  }
-
-  //filter only y4m files
-  const y4m = fs.readdirSync(zipPath).filter(variavel => variavel.includes('.y4m'))
-  y4m.forEach(videoName => {
-    //check if video has already been extracted, if so it deletes the video
-    fs.existsSync(videoPath + videoName) ? fs.rmSync(zipPath + videoName) : fs.rename(zipPath + videoName, videoPath + videoName)
-  })
-}
-
-// select the video that will run
-function getVideo(fileName) {
-  let feature = fileName.split('/')[1]
-  feature = feature.split('.')[0]
-  switch (feature) {
-    case 'cpf-recogition':
-      return 'cpf_video.y4m';
-
-    default:
-
-      return 'faceVideo.y4m';
   }
 }
