@@ -7,6 +7,12 @@
 
 /reports
 
+/cypress/report
+
+/cypress/results
+
+/cypress/downloads
+
 /cypress.env.json
 
 /cypress/cucumber-json
