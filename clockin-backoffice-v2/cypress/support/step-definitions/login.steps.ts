@@ -1,73 +1,55 @@
-/* global Given, Then, When */
-/// <reference types='cypress' />
+import { Login } from "../page-objects/login-page.po";
+import { Given, When,Then } from "cypress-cucumber-preprocessor/steps";
 
-// Import Cucumber prefix
-import { Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
+const login = new Login();
 
+When("digito um email invalido", function () {
+  login.escreverLoginESenha(Cypress.env("emailFake"), Cypress.env("password"));
+  login.cliqueNoLogin();
+});
+When("digito uma senha invalida", function () {
+  login.escreverLoginESenha(Cypress.env("email"), '123456789');
+  login.cliqueNoLogin();
+});
+When("digito um ambiente incorreto", function () {
+  login.escreverAmbiente('clockinBeta');
+});
+When("digito uma organizacao invalida", function () {
+  login.escreverOrganizacao('clockinBeta');
+});
+When("clico em esqueci minha senha e digito email aleatorio", function () {
+  login.cliqueEsqeciSenha();
+  login.escreverEmailEsqueciSenha(Cypress.env("emailFake"));
+  login.cliqueNoLogin();
+});
+When("clico em esqueci minha senha e digito email invalido", function () {
+  login.cliqueEsqeciSenha();
+  login.escreverEmailEsqueciSenha("clockin");
+});
+When("clico em esqueci minha senha e digito email valido", function () {
+  login.cliqueEsqeciSenha();
+  login.escreverEmailEsqueciSenha(Cypress.env("email"));
+  login.cliqueNoLogin();
+});
 
-import LoginPage from '../page-objects/login.page'
-const loginPage = new LoginPage
-
-const email = Cypress.env('email');
-const emailFake = Cypress.env('emailFake');
-const password = Cypress.env('password');
-
-Given("acesso o site backoffice", () => {
-    loginPage.acessarSite();
-})
-
-When("digito um email invalido", () => {
-    loginPage.digitandoLogin(emailFake,password);
-})
-When("digito uma senha invalida", () => {
-    loginPage.digitandoLogin(email,'123456789');
-})
-When("digito um environment incorreto", () => {
-    loginPage.digitandoEnvironment('clockinBeta');
-})
-When("digito uma organization invalida", () => {
-    loginPage.digitandoOrganization('clockinTeste');
-})
-When("clico em esqueci minha senha e digito email aleatorio", () => {
-    loginPage.digitandoEmResetDeSenha(emailFake);
-})
-When("clico em esqueci minha senha e digito email invalido", () => {
-    loginPage.digitandoEmResetDeSenhaSemSubmeter('clockin');
-})
-When("clico em esqueci minha senha e digito email valido", () => {
-    loginPage.digitandoEmResetDeSenha(email);
-})
-
-Then("devo visualizar mensagem de login incorreto", () => {
-    loginPage.visualizarLoginInvalido();
-})
-Then("devo visualizar mensagem de senha incorreta", () => {
-    loginPage.visualizarSenhaInvalida();
-})
-Then("devo visualizar mensagem de environment nao encontrado", () => {
-    loginPage.visualizarEnvironmentInvalido();
-})
-Then("devo visualizar mensagem de organization invalida", () => {
-    loginPage.visualizarOrganizationInvalida();
-})
-Then("devo visualizar mensagem de email incorreta, tente novamente", () => {
-    loginPage.visualizarEmailInvalidoTenteNovamente();
-})
-Then("devo visualizar mensagem de email invalido", () => {
-    loginPage.visualizarEmailInvalido();
-})
-Then("devo visualizar mensagem de instrucoes no email", () => {
-    loginPage.visualizarInstrucoesNoEmail();
-})
-
-// function When(arg0: string, arg1: () => void) {
-//     throw new Error('Function not implemented.');
-// }
-// function Given(arg0: string, arg1: () => void) {
-//     throw new Error('Function not implemented.');
-// }
-
-// function Then(arg0: string, arg1: () => void) {
-//     throw new Error('Function not implemented.');
-// }
-
+Then("devo visualizar mensagem de login incorreto", function () {
+  login.mensagemLoginIncorreto();
+});
+Then("devo visualizar mensagem de senha incorreta", function () {
+  login.mensagemSenhaIncorreta();
+});
+Then("devo visualizar mensagem de ambiente nao encontrado", function () {
+  login.mensagemAmbienteIncorreto();
+});
+Then("devo visualizar mensagem de organizacao invalida", function () {
+  login.mensagemOrganizacaoInvalida();
+});
+Then("devo visualizar mensagem de email incorreta, tente novamente", function () {
+  login.mensagemEmailIncorreto();
+});
+Then("devo visualizar mensagem de email invalido", function () {
+  login.mensagemEmailInvalido();
+});
+Then("devo visualizar mensagem de instrucoes no email", function () {
+  login.mensagemInstrucoesPeloEmail();
+});
