@@ -6,15 +6,8 @@
   "scripts": {
     "cy-open": "cypress open",
     "cy-run": "cypress run",
-    "cy-run-chrome": "cypress run --browser chrome",
-    "cy-run-edge": "cypress run --browser edge",
-    "cy-run-firefox": "cypress run --browser firefox",
-    "cy-run-all-browsers": "npm run cy-run-chrome & npm run cy-run-edge & npm run cy-run-firefox",
-    "cucumberreport:generate": "node reportGenerator-cucumber.js",
     "delete-reports": "rm -rf cypress/report/*",
     "report-mochawesome": "npx cypress run --reporter mochawesome",
-    "rm": "rm -rf ./cypress/results ./cypress/cucumber-json",
-    "rm2": "rm -rf ./cypress/screenshots",
     "report": "bash ./script.sh"
   },
   "author": "TOTVS",
