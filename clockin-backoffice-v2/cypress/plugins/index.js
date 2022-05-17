@@ -14,11 +14,8 @@
  * @type {Cypress.PluginConfig}
  */
 
-const path = require('path');
 const cucumber = require('cypress-cucumber-preprocessor').default;
 const browserify = require('@cypress/browserify-preprocessor');
-const fs = require('fs');
-let specName = '';
 
 const options = {
   typescript: require.resolve('typescript'),
