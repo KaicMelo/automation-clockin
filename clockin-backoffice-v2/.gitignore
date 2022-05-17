@@ -1,15 +1,18 @@
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-/cypress/videos
+
+/cypress/fixtures/videos
+
+/cypress/cucumber-json
+
+/node_modules
+
+/reports
+
 /cypress/report
 
-# Node
-/node_modules
-.env
+/cypress/results
 
-# environment variable
-cypress.env.json
-screenshots
+/cypress/downloads
+
+/cypress.env.json
+
+/cypress/cucumber-json

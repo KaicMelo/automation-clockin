@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types="Cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -8,20 +8,34 @@
 // You can read more here:
 // https://on.cypress.io/plugins-guide
 // ***********************************************************
-
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-
 /**
  * @type {Cypress.PluginConfig}
  */
 
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
-
 const cucumber = require('cypress-cucumber-preprocessor').default;
+const browserify = require('@cypress/browserify-preprocessor');
+
+const options = {
+  typescript: require.resolve('typescript'),
+};
+const b = browserify(options);
+
 module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
+  const options = browserify.defaultOptions
+  options.browserifyOptions.extensions.unshift('.ts');
+  options.browserifyOptions.plugin.unshift(['tsify', { project: '/cypress/tsconfig.json' }]);
+
+  const c = cucumber({
+    ...browserify.defaultOptions,
+    ...options,
+  })
+
+  on('file:preprocessor', file => {
+    if (file.filePath.includes('.feature')) {
+      return c(file);
+    }
+    return b(file);
+  })
 }
