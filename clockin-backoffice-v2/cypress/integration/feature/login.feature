@@ -36,8 +36,3 @@ Funcionalidade: Login no Backoffice
         Quando acesso o backoffice
         E clico em esqueci minha senha e digito email valido
         Então devo visualizar mensagem de instrucoes no email
-
-    # Scenario: Fazer login
-    #     Given acesso o backoffice
-    #     When clico em esqueci minha senha e digito email valido
-    #     Then devo visualizar mensagem de instrucoes no email
