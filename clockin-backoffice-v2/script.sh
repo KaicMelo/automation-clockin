@@ -1,0 +1,1 @@
+npm run delete-reports; npm run report-mochawesome;
