@@ -1,17 +1,17 @@
 # automation-clockin
 
-This project was generated with [Cypress](https://www.cypress.io/)
+Esse projeto foi criado com [Cypress](https://www.cypress.io/)
 
 ## Installing
 Para gerenciar ramificações do Git:
 ```bash
 git flow init
 ```
-[Mais informações git flow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
+[Mais informações git flow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow){:target="_blank"}
 
-[![npm version](https://badge.fury.io/js/cypress.svg)](https://badge.fury.io/js/cypress)
+[![npm version](https://badge.fury.io/js/cypress.svg)](https://badge.fury.io/js/cypress){:target="_blank"}
 
-Install Cypress for Mac, Linux, or Windows, then [get started](https://on.cypress.io/install).
+Install Cypress for Mac, Linux, or Windows, then [get started](https://on.cypress.io/install){:target="_blank"}.
 
 ```bash
 npm install cypress --save-dev
@@ -32,4 +32,4 @@ Passo a passo para rodar o projeto:
 
 Run `npm start` for a server.
 
-![installing-cli e1693232](https://user-images.githubusercontent.com/1271364/31740846-7bf607f0-b420-11e7-855f-41c996040d31.gif)
+![installing-cli e1693232](https://user-images.githubusercontent.com/1271364/31740846-7bf607f0-b420-11e7-855f-41c996040d31.gif){:target="_blank"}
