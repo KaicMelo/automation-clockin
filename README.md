@@ -3,6 +3,11 @@
 This project was generated with [Cypress](https://www.cypress.io/)
 
 ## Installing
+Para gerenciar ramificações do Git:
+```bash
+git flow init
+```
+[Mais informações git flow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
 
 [![npm version](https://badge.fury.io/js/cypress.svg)](https://badge.fury.io/js/cypress)
 
