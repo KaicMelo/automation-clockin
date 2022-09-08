@@ -47,7 +47,7 @@ export class Login {
     cy.contains(this.obterErro, "Incorrect password was used").should("be.visible");
   }
   mensagemAmbienteIncorreto(){
-    cy.contains(UtilsSelectors.li, "Environment not found").should("be.visible");
+    cy.contains(UtilsSelectors.li, "Tenant not found").should("be.visible");
   }
   mensagemOrganizacaoInvalida(){
     cy.contains(this.obterErro, "Invalid organization, please try again.").should("be.visible");
