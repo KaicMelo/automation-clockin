@@ -1,16 +1,15 @@
 #language: pt
-Funcionalidade: Realizar validações em Localizações
+Funcionalidade: Localizações
     Eu, como usuário, quero testar todas as funcionalidade das localizações no Backoffice.
-
-    Cenario: Login Backoffice
-        Quando acesso o backoffice
-        E relizo login com credencias validas
-        Então devo visualizar meu avatar
 
     Cenario: Cadastrar nova localização
         Quando acesso a area de localizacoes
-        E acesso a area de localizacoes
         E cadastro nova localizacao com todos os campos preenchidos corretamente 
+        Então devo visualizar a localizacao cadastrada na lista de localizacoes
+    
+    Cenario: Pesquisar localização
+        Quando acesso a area de localizacoes
+        E pesquiso a localização cadastrada
         Então devo visualizar a localizacao cadastrada na lista de localizacoes
 
     Cenario: Editar localização

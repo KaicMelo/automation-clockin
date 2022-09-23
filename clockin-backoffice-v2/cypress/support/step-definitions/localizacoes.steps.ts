@@ -1,10 +1,14 @@
 import { Localizacoes } from './../page-objects/localizacoes-page.po';
 import { Then,And } from "cypress-cucumber-preprocessor/steps";
+import { Genereic } from '../page-objects/generic-po/generic-page.po';
 
 const localizacoes = new Localizacoes();
+const genereic = new Genereic();
 
-And("relizo login com credencias validas", function () {
-  localizacoes.realizarLogin(Cypress.env("email"), Cypress.env("password"));
+before( () => {
+  localizacoes.carregarFixture();
+  genereic.acessarBackoffice();
+  genereic.realizarLogin(Cypress.env("email"), Cypress.env("password"));
 });
 And("acesso a area de localizacoes", function () {
   localizacoes.acessarLocalizacoes();
@@ -20,6 +24,9 @@ And("edito minha localização", function () {
 });
 And("seleciono minha localização cadastrada, clico em remover", function () {
   localizacoes.removerLocalizacao(); 
+});
+And("pesquiso a localização cadastrada", function () {
+  localizacoes.pesquisarPorLocalizacao(); 
 });
 
 Then("devo visualizar a localizacao cadastrada na lista de localizacoes", function () {
