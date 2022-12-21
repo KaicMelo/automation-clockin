@@ -25,4 +25,5 @@ Funcionalidade: Localizações
         Quando acesso a area de localizacoes
         E pesquiso a localização cadastrada
         E seleciono minha localização cadastrada, clico em remover
+        E pesquiso a localização cadastrada
         Então não devo visualizar a localizacao na lista de localizacoes

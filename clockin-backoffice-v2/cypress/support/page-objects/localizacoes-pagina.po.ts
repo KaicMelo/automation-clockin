@@ -71,6 +71,7 @@ export class Localizacoes {
 
         cy.get(SeletoresLocalizacoes.botaoRemoverLocalizacao).contains("Remover").click();
       });
+      cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
   }
   pesquisarPorLocalizacao() {
     cy.get('.po-page-list-filter-wrapper > .po-field-container-content > .po-input').type(this.descricao);
