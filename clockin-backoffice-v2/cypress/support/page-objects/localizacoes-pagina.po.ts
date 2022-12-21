@@ -62,6 +62,7 @@ export class Localizacoes {
   }
 
   removerLocalizacao() {
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
     cy.get(SeletoresLocalizacoes.tableContainer)
       .contains(SeletoresLocalizacoes.tr, this.descricao)
       .then((row: any) => {
@@ -78,19 +79,21 @@ export class Localizacoes {
   }
 
   visualizarLocalizacaoCadastrada() {
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
     cy.get(SeletoresLocalizacoes.tableContainer)
       .contains(SeletoresLocalizacoes.td, this.descricao)
       .should("be.visible");
   }
   visualizarLocalizacaoAtualizada() {
-    cy.get(SeletoresLocalizacoes.tableContainer)
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresLocalizacoes.tableContainer,{ timeout: this.timeOut })
       .contains(SeletoresLocalizacoes.td, "Rua Manguari, Jardim Andarai")
-      .should("be.visible");
+      .should("exist");
   }
   naoDevoVisualizarLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
     cy.get(SeletoresLocalizacoes.tableContainer)
-      .contains(SeletoresLocalizacoes.td, "Rua Manguari, Jardim Andarai", { timeout: this.timeOut })
+      .contains(SeletoresLocalizacoes.td, this.descricao, { timeout: this.timeOut })
       .should("not.exist");
   }
 }
