@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
-import { UtilsSelectors } from "./selectors/utils.selectors";
+import { SeletoresReutilizaveis } from "./selectors/utils.selectors";
 
-export class Generic {
+export class Generica {
   url: any = Cypress.config("baseUrl");
 
   acessarBackoffice() {
@@ -10,8 +10,8 @@ export class Generic {
   }
 
   realizarLogin() {
-    cy.get(UtilsSelectors.email).type(Cypress.env("email"));
-    cy.get(UtilsSelectors.senha).type(Cypress.env("password"), { log: false });
-    cy.get(UtilsSelectors.botaoRealizarLogin).click();
+    cy.get(SeletoresReutilizaveis.email).type(Cypress.env("email"));
+    cy.get(SeletoresReutilizaveis.senha).type(Cypress.env("password"), { log: false });
+    cy.get(SeletoresReutilizaveis.botaoRealizarLogin).click();
   }
 }

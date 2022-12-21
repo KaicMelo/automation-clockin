@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-import { LocalizacoesSelectors } from './generic-po/selectors/localizacoes.selectors';
-import { UtilsSelectors } from "./generic-po/selectors/utils.selectors";
+import { SeletoresLocalizacoes } from './generic-po/selectors/localizacoes.selectors';
+import { SeletoresReutilizaveis } from "./generic-po/selectors/utils.selectors";
 
 export class Localizacoes {
   codigo: string = '';
@@ -20,55 +20,55 @@ export class Localizacoes {
     });
   }
   acessarLocalizacoes(): void {
-    cy.get(UtilsSelectors.menu,{ timeout: this.timeOut }).should("exist");
-    cy.get(UtilsSelectors.menu).click();
-    cy.get(LocalizacoesSelectors.iconeMenu)
+    cy.get(SeletoresReutilizaveis.menu,{ timeout: this.timeOut }).should("exist");
+    cy.get(SeletoresReutilizaveis.menu).click();
+    cy.get(SeletoresLocalizacoes.iconeMenu)
       .contains(" Localizações ")
       .click();
   }
   localizarLocalizacaoCadastradaEditar(): void {
-    cy.get(LocalizacoesSelectors.tableContainer)
-      .contains(LocalizacoesSelectors.tr, this.descricao)
+    cy.get(SeletoresLocalizacoes.tableContainer)
+      .contains(SeletoresLocalizacoes.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
-        cy.get(UtilsSelectors.overlay,{ timeout: this.timeOut }).should("not.exist");
+        cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
         cy.get(children[5],{ timeout: this.timeOut }).click();
       });
   }
   cadastrarLocalizacaoComTodosCamposPreenchidos(): void {
-    cy.get(LocalizacoesSelectors.botaoAdicionarLocalizacao).click();
-    cy.get(LocalizacoesSelectors.campoCodigo).type(this.codigo);
-    cy.get(LocalizacoesSelectors.campoDescricao).type(this.descricao);
-    cy.get(LocalizacoesSelectors.selectFusoHorario).click();
-    cy.get(LocalizacoesSelectors.selectFusoHorarioSaoPaulo).click();
-    cy.get(LocalizacoesSelectors.campoEndereco)
+    cy.get(SeletoresLocalizacoes.botaoAdicionarLocalizacao).click();
+    cy.get(SeletoresLocalizacoes.campoCodigo).type(this.codigo);
+    cy.get(SeletoresLocalizacoes.campoDescricao).type(this.descricao);
+    cy.get(SeletoresLocalizacoes.selectFusoHorario).click();
+    cy.get(SeletoresLocalizacoes.selectFusoHorarioSaoPaulo).click();
+    cy.get(SeletoresLocalizacoes.campoEndereco)
       .type(this.endereco_1)
       .wait(500);
     cy.contains("Brasil").click();
-    cy.get(LocalizacoesSelectors.campoRaio).type("500");
-    cy.get(LocalizacoesSelectors.botaoSalvarLocalizacao).click();
-    cy.get(LocalizacoesSelectors.modalAdicionarLocalizacao,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresLocalizacoes.campoRaio).type("500");
+    cy.get(SeletoresLocalizacoes.botaoSalvarLocalizacao).click();
+    cy.get(SeletoresLocalizacoes.modalAdicionarLocalizacao,{ timeout: this.timeOut }).should("not.exist");
   }
   editarLocalizacao() {
-    cy.get(LocalizacoesSelectors.campoEndereco).clear();
+    cy.get(SeletoresLocalizacoes.campoEndereco).clear();
 
-    cy.get(LocalizacoesSelectors.campoEndereco)
+    cy.get(SeletoresLocalizacoes.campoEndereco)
       .type(this.endereco_2)
       .wait(500);
     cy.contains("SP").click();
-    cy.get(LocalizacoesSelectors.campoRaio).type("500");
-    cy.get(LocalizacoesSelectors.botaoSalvarLocalizacao).click();
-    cy.get(LocalizacoesSelectors.modalAdicionarLocalizacao, { timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresLocalizacoes.campoRaio).type("500");
+    cy.get(SeletoresLocalizacoes.botaoSalvarLocalizacao).click();
+    cy.get(SeletoresLocalizacoes.modalAdicionarLocalizacao, { timeout: this.timeOut }).should("not.exist");
   }
 
   removerLocalizacao() {
-    cy.get(LocalizacoesSelectors.tableContainer)
-      .contains(LocalizacoesSelectors.tr, this.descricao)
+    cy.get(SeletoresLocalizacoes.tableContainer)
+      .contains(SeletoresLocalizacoes.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
         cy.get(children[0]).click();
 
-        cy.get(LocalizacoesSelectors.botaoRemoverLocalizacao).contains("Remover").click();
+        cy.get(SeletoresLocalizacoes.botaoRemoverLocalizacao).contains("Remover").click();
       });
   }
   pesquisarPorLocalizacao() {
@@ -78,19 +78,19 @@ export class Localizacoes {
   }
 
   visualizarLocalizacaoCadastrada() {
-    cy.get(LocalizacoesSelectors.tableContainer)
-      .contains(LocalizacoesSelectors.td, this.descricao)
+    cy.get(SeletoresLocalizacoes.tableContainer)
+      .contains(SeletoresLocalizacoes.td, this.descricao)
       .should("be.visible");
   }
   visualizarLocalizacaoAtualizada() {
-    cy.get(LocalizacoesSelectors.tableContainer)
-      .contains(LocalizacoesSelectors.td, "Rua Manguari, Jardim Andarai")
+    cy.get(SeletoresLocalizacoes.tableContainer)
+      .contains(SeletoresLocalizacoes.td, "Rua Manguari, Jardim Andarai")
       .should("be.visible");
   }
   naoDevoVisualizarLocalizacao() {
-    cy.get(UtilsSelectors.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(LocalizacoesSelectors.tableContainer)
-      .contains(LocalizacoesSelectors.td, "Rua Manguari, Jardim Andarai", { timeout: this.timeOut })
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresLocalizacoes.tableContainer)
+      .contains(SeletoresLocalizacoes.td, "Rua Manguari, Jardim Andarai", { timeout: this.timeOut })
       .should("not.exist");
   }
 }
