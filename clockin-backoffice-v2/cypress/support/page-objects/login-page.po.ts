@@ -15,6 +15,8 @@ export class Login {
   organizacao = "#organization";
   excluirOrganizacao = ":nth-child(1) > .wrap--w-full > .side-content--right > .cw-btn-subtle";
 
+  timeOut: number = 30000;
+
   escreverLoginESenha(email: string, senha: string): void {
       cy.get(this.email).type(email);
       cy.get(this.senha).type(senha,{ log: false });  
@@ -60,6 +62,6 @@ export class Login {
     cy.contains(this.ErroNoResetarSenha, "Invalid Email").should("be.visible");
   }
   mensagemInstrucoesPeloEmail(){
-    cy.contains(UtilsSelectors.p, " An email with instructions to reset your password has been sent to ").should("be.visible");
+    cy.contains(UtilsSelectors.p, " An email with instructions to reset your password has been sent to ",{ timeout: this.timeOut }).should("be.visible");
   }
 }

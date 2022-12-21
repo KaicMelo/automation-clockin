@@ -3,7 +3,9 @@ Funcionalidade: Localizações
     Eu, como usuário, quero testar todas as funcionalidade das localizações no Backoffice.
 
     Cenario: Cadastrar nova localização
-        Quando acesso a area de localizacoes
+        Quando acesso o backoffice
+        E realizo login
+        E acesso a area de localizacoes
         E cadastro nova localizacao com todos os campos preenchidos corretamente 
         Então devo visualizar a localizacao cadastrada na lista de localizacoes
     

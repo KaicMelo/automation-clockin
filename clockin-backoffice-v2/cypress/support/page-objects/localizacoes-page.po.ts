@@ -20,6 +20,7 @@ export class Localizacoes {
     });
   }
   acessarLocalizacoes(): void {
+    cy.get(UtilsSelectors.menu,{ timeout: this.timeOut }).should("exist");
     cy.get(UtilsSelectors.menu).click();
     cy.get(LocalizacoesSelectors.iconeMenu)
       .contains(" Localizações ")
@@ -30,6 +31,7 @@ export class Localizacoes {
       .contains(LocalizacoesSelectors.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
+        cy.get(UtilsSelectors.overlay,{ timeout: this.timeOut }).should("not.exist");
         cy.get(children[5],{ timeout: this.timeOut }).click();
       });
   }
@@ -86,6 +88,7 @@ export class Localizacoes {
       .should("be.visible");
   }
   naoDevoVisualizarLocalizacao() {
+    cy.get(UtilsSelectors.overlay,{ timeout: this.timeOut }).should("not.exist");
     cy.get(LocalizacoesSelectors.tableContainer)
       .contains(LocalizacoesSelectors.td, "Rua Manguari, Jardim Andarai", { timeout: this.timeOut })
       .should("not.exist");

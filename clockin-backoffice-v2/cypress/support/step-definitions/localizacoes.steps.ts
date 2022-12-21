@@ -1,15 +1,12 @@
 import { Localizacoes } from './../page-objects/localizacoes-page.po';
 import { Then,And } from "cypress-cucumber-preprocessor/steps";
-import { Genereic } from '../page-objects/generic-po/generic-page.po';
 
 const localizacoes = new Localizacoes();
-const genereic = new Genereic();
 
 before( () => {
   localizacoes.carregarFixture();
-  genereic.acessarBackoffice();
-  genereic.realizarLogin(Cypress.env("email"), Cypress.env("password"));
 });
+
 And("acesso a area de localizacoes", function () {
   localizacoes.acessarLocalizacoes();
 });

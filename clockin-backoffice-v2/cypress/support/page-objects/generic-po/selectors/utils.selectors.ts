@@ -6,4 +6,5 @@ export enum UtilsSelectors {
   email = "#email",
   senha = "#password",
   botaoRealizarLogin = ".gate-btn",
+  overlay = ".po-table-overlay-content",
 }
