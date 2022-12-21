@@ -7,6 +7,7 @@ Funcionalidade: Localizações
         E realizo login
         E acesso a area de localizacoes
         E cadastro nova localizacao com todos os campos preenchidos corretamente 
+        E pesquiso a localização cadastrada
         Então devo visualizar a localizacao cadastrada na lista de localizacoes
     
     Cenario: Pesquisar localização
@@ -22,5 +23,6 @@ Funcionalidade: Localizações
 
     Cenario: Excluir localização
         Quando acesso a area de localizacoes
+        E pesquiso a localização cadastrada
         E seleciono minha localização cadastrada, clico em remover
         Então não devo visualizar a localizacao na lista de localizacoes

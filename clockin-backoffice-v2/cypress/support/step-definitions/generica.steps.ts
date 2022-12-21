@@ -1,13 +1,13 @@
 /// <reference types="Cypress" />
 import { Given } from "cypress-cucumber-preprocessor/steps";
-import { Generic } from "../page-objects/generic-po/generic-page.po";
+import { Generica } from "../page-objects/generic-po/generica.po";
 
-const generic = new Generic();
+const generica = new Generica();
 
 Given("acesso o backoffice", () => {
-  generic.acessarBackoffice();
+  generica.acessarBackoffice();
 });
 
 Given("realizo login", () => {
-  generic.realizarLogin();
+  generica.realizarLogin();
 });

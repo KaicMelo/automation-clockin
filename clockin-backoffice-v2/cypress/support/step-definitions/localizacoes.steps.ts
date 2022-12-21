@@ -1,4 +1,4 @@
-import { Localizacoes } from './../page-objects/localizacoes-page.po';
+import { Localizacoes } from '../page-objects/localizacoes-pagina.po';
 import { Then,And } from "cypress-cucumber-preprocessor/steps";
 
 const localizacoes = new Localizacoes();

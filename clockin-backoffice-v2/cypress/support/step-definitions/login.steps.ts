@@ -1,4 +1,4 @@
-import { Login } from "../page-objects/login-page.po";
+import { Login } from "../page-objects/login-pagina.po";
 import { When,Then } from "cypress-cucumber-preprocessor/steps";
 
 const login = new Login();

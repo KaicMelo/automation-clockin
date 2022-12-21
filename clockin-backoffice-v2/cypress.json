@@ -11,7 +11,7 @@
   "screenshotsFolder": "cypress/reports/mochareports/assets",
   "chromeWebSecurity": false,
   "integrationFolder": "cypress/integration",
-  "baseUrl": "https://clockin.carol.ai/clockinqas/apps/dev/devbo/1.0.0/index.html",
+  "baseUrl": "https://totvsclockin.carol.ai/totvsrm/apps/dev/totvsrmbocdsdm/0.0.1/index.html",
   "pluginsFile": "cypress/plugins/index.js",
   "video": false,
   "screenshotOnRunPass": false

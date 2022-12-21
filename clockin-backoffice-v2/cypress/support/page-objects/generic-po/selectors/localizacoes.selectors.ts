@@ -1,4 +1,4 @@
-export enum LocalizacoesSelectors {
+export enum SeletoresLocalizacoes {
   iconeMenu = "po-menu-item > .po-menu-item-link > .po-menu-item",
   tableContainer = ".po-table-main-container",
   tr = "tr",
