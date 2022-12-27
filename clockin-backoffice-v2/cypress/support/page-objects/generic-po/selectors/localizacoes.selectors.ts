@@ -1,5 +1,4 @@
 export enum SeletoresLocalizacoes {
-  botaoRemoverLocalizacao = ".po-page-list-actions",
   campoCodigo = ".po-lg-3 > .ng-valid > po-field-container > .po-field-container > .po-field-container-content > .po-input",
   campoDescricao = ".po-lg-5 > .ng-untouched > po-field-container > .po-field-container > .po-field-container-content > .po-input",
   selectFusoHorario = ".po-lg-4 > .ng-untouched > po-field-container > .po-field-container > .po-select-container > .po-select-button",

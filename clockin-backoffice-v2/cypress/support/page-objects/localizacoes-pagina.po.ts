@@ -27,7 +27,7 @@ export class Localizacoes {
       .click();
   }
   localizarLocalizacaoCadastradaEditar(): void {
-    cy.get(SeletoresReutilizaveis.tableContainer)
+    cy.get(SeletoresReutilizaveis.tabela)
       .contains(SeletoresReutilizaveis.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
@@ -63,13 +63,13 @@ export class Localizacoes {
 
   removerLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresReutilizaveis.tableContainer)
+    cy.get(SeletoresReutilizaveis.tabela)
       .contains(SeletoresReutilizaveis.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
         cy.get(children[0]).click();
 
-        cy.get(SeletoresLocalizacoes.botaoRemoverLocalizacao).contains("Remover").click();
+        cy.get(SeletoresReutilizaveis.botaoRemover).contains("Remover").click();
       });
       cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
   }
@@ -81,19 +81,19 @@ export class Localizacoes {
 
   visualizarLocalizacaoCadastrada() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresReutilizaveis.tableContainer)
+    cy.get(SeletoresReutilizaveis.tabela)
       .contains(SeletoresReutilizaveis.td, this.descricao)
       .should("be.visible");
   }
   visualizarLocalizacaoAtualizada() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresReutilizaveis.tableContainer,{ timeout: this.timeOut })
+    cy.get(SeletoresReutilizaveis.tabela,{ timeout: this.timeOut })
       .contains(SeletoresReutilizaveis.td, "Rua Manguari, Jardim Andarai")
       .should("exist");
   }
   naoDevoVisualizarLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresReutilizaveis.tableContainer)
+    cy.get(SeletoresReutilizaveis.tabela)
       .contains(SeletoresReutilizaveis.td, this.descricao, { timeout: this.timeOut })
       .should("not.exist");
   }

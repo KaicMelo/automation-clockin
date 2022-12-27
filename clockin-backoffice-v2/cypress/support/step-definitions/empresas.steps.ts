@@ -16,7 +16,13 @@ And("cadastro nova empresa com todos os campos preenchidos corretamente", functi
 And("pesquiso a empresa cadastrada", function () {
   empresas.pesquisarPorEmpresa();
 });
+And("seleciono minha empresa cadastrada, clico em remover", function () {
+  empresas.removerEmpresa();
+});
 
 Then("devo visualizar a empresa cadastrada na lista de empresas", function () {
   empresas.visualizarEmpresaCadastrada();
+});
+Then("não devo visualizar a empresa na lista de empresas", function () {
+  empresas.naoVisualizarEmpresaCadastrada();
 });
