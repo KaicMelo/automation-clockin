@@ -4,7 +4,9 @@ Funcionalidade: Validar a aba empresas
 
     Cenario: Cadastrar nova empresa no Backoffice
         Quando acesso o backoffice
-        E faço login e acesso as empresas
+        E realizo login
+        E acesso a area de empresas
         E cadastro nova empresa com todos os campos preenchidos corretamente
+        E pesquiso a empresa cadastrada
         Então devo visualizar a empresa cadastrada na lista de empresas
         

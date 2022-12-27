@@ -22,13 +22,13 @@ export class Localizacoes {
   acessarLocalizacoes(): void {
     cy.get(SeletoresReutilizaveis.menu,{ timeout: this.timeOut }).should("exist");
     cy.get(SeletoresReutilizaveis.menu).click();
-    cy.get(SeletoresLocalizacoes.iconeMenu)
+    cy.get(SeletoresReutilizaveis.iconeMenu)
       .contains(" Localizações ")
       .click();
   }
   localizarLocalizacaoCadastradaEditar(): void {
-    cy.get(SeletoresLocalizacoes.tableContainer)
-      .contains(SeletoresLocalizacoes.tr, this.descricao)
+    cy.get(SeletoresReutilizaveis.tableContainer)
+      .contains(SeletoresReutilizaveis.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
         cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
@@ -36,7 +36,7 @@ export class Localizacoes {
       });
   }
   cadastrarLocalizacaoComTodosCamposPreenchidos(): void {
-    cy.get(SeletoresLocalizacoes.botaoAdicionarLocalizacao).click();
+    cy.get(SeletoresReutilizaveis.botaoAdicionar).click();
     cy.get(SeletoresLocalizacoes.campoCodigo).type(this.codigo);
     cy.get(SeletoresLocalizacoes.campoDescricao).type(this.descricao);
     cy.get(SeletoresLocalizacoes.selectFusoHorario).click();
@@ -46,8 +46,8 @@ export class Localizacoes {
       .wait(500);
     cy.contains("Brasil").click();
     cy.get(SeletoresLocalizacoes.campoRaio).type("500");
-    cy.get(SeletoresLocalizacoes.botaoSalvarLocalizacao).click();
-    cy.get(SeletoresLocalizacoes.modalAdicionarLocalizacao,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresReutilizaveis.botaoSalvar).click();
+    cy.get(SeletoresReutilizaveis.modalAdicionar,{ timeout: this.timeOut }).should("not.exist");
   }
   editarLocalizacao() {
     cy.get(SeletoresLocalizacoes.campoEndereco).clear();
@@ -57,14 +57,14 @@ export class Localizacoes {
       .wait(500);
     cy.contains("SP").click();
     cy.get(SeletoresLocalizacoes.campoRaio).type("500");
-    cy.get(SeletoresLocalizacoes.botaoSalvarLocalizacao).click();
-    cy.get(SeletoresLocalizacoes.modalAdicionarLocalizacao, { timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresReutilizaveis.botaoSalvar).click();
+    cy.get(SeletoresReutilizaveis.modalAdicionar, { timeout: this.timeOut }).should("not.exist");
   }
 
   removerLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresLocalizacoes.tableContainer)
-      .contains(SeletoresLocalizacoes.tr, this.descricao)
+    cy.get(SeletoresReutilizaveis.tableContainer)
+      .contains(SeletoresReutilizaveis.tr, this.descricao)
       .then((row: any) => {
         const children = row[0].children;
         cy.get(children[0]).click();
@@ -74,27 +74,27 @@ export class Localizacoes {
       cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
   }
   pesquisarPorLocalizacao() {
-    cy.get('.po-page-list-filter-wrapper > .po-field-container-content > .po-input').type(this.descricao);
-    cy.get('.po-field-container-content > .po-field-icon-container-right > .po-icon').click();
-    cy.get('.po-disclaimer-remove').click();
+    cy.get(SeletoresReutilizaveis.caixaDeFiltro).type(this.descricao);
+    cy.get(SeletoresReutilizaveis.botaoCaixaDeFiltro).click();
+    cy.get(SeletoresReutilizaveis.disclaimerRemover).click();
   }
 
   visualizarLocalizacaoCadastrada() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresLocalizacoes.tableContainer)
-      .contains(SeletoresLocalizacoes.td, this.descricao)
+    cy.get(SeletoresReutilizaveis.tableContainer)
+      .contains(SeletoresReutilizaveis.td, this.descricao)
       .should("be.visible");
   }
   visualizarLocalizacaoAtualizada() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresLocalizacoes.tableContainer,{ timeout: this.timeOut })
-      .contains(SeletoresLocalizacoes.td, "Rua Manguari, Jardim Andarai")
+    cy.get(SeletoresReutilizaveis.tableContainer,{ timeout: this.timeOut })
+      .contains(SeletoresReutilizaveis.td, "Rua Manguari, Jardim Andarai")
       .should("exist");
   }
   naoDevoVisualizarLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresLocalizacoes.tableContainer)
-      .contains(SeletoresLocalizacoes.td, this.descricao, { timeout: this.timeOut })
+    cy.get(SeletoresReutilizaveis.tableContainer)
+      .contains(SeletoresReutilizaveis.td, this.descricao, { timeout: this.timeOut })
       .should("not.exist");
   }
 }

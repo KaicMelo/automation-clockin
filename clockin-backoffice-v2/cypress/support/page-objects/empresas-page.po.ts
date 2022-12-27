@@ -1,20 +1,58 @@
 /// <reference types="Cypress" />
 
-import { UtilsSelectors } from './generic-po/selectors/utils.selectors';
+import { SeletoresEmpresas } from "./generic-po/selectors/empresas.selectors";
+import { SeletoresReutilizaveis } from "./generic-po/selectors/utils.selectors";
 
 export class Empresas {
+  codigo: string = '';
+  nome: string = '';
+  cnpj: string = '';
+  ceicno: string = '';
+  endereco: string = '';
 
-  email = "#email";
-  senha = "#password";
-  botao = ".gate-btn";
-  menu = ".po-menu-mobile > .po-icon";
-  empresas = ":nth-child(2) > po-menu-item > .po-menu-item-link > .po-menu-item";
+  timeOut: number = 30000;
 
-  realizarLogin(email: string, senha: string): void {
-      cy.get(this.email).type(email);
-      cy.get(this.senha).type(senha,{ log: false });
-      cy.get(this.botao).click();
-      cy.get(this.menu).click();
-      cy.get(this.empresas).click();
+  carregarFixture(): void {
+    cy.fixture('empresas').then(fixture => {
+      this.codigo = fixture.codigo
+      this.nome = fixture.nome
+      this.cnpj = fixture.cnpj
+      this.ceicno = fixture.ceicno
+      this.endereco = fixture.endereco
+    });
+  }
+
+  acessarEmpresas() {
+    cy.get(SeletoresReutilizaveis.menu, { timeout: this.timeOut }).should(
+      "exist"
+    );
+    cy.get(SeletoresReutilizaveis.menu).click();
+    cy.get(SeletoresReutilizaveis.iconeMenu).contains(" Empresas ").click();
+  }
+  cadastrarEmpresaComTodosCamposPreenchidos(): void {
+    cy.get(SeletoresReutilizaveis.botaoAdicionar).click();
+    cy.get(SeletoresEmpresas.codigo).type(this.codigo);
+    cy.get(SeletoresEmpresas.nome).type(this.nome);
+    cy.get(SeletoresEmpresas.cnpj).type(this.cnpj);
+    cy.get(SeletoresEmpresas.ceicno).type(this.ceicno)
+    cy.get(SeletoresEmpresas.endereco).type(this.endereco).wait(500);
+    cy.contains("Brasil").click();
+    cy.get(SeletoresReutilizaveis.botaoSalvar).click();
+        cy.get(SeletoresReutilizaveis.modalAdicionar, {
+      timeout: this.timeOut,
+    }).should("not.exist");
+  }
+
+  pesquisarPorEmpresa(){
+    cy.get(SeletoresReutilizaveis.caixaDeFiltro).type(this.nome);
+    cy.get(SeletoresReutilizaveis.botaoCaixaDeFiltro).click();
+    cy.get(SeletoresReutilizaveis.disclaimerRemover).click();
+  }
+
+  visualizarEmpresaCadastrada() {
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresReutilizaveis.tableContainer)
+      .contains(SeletoresReutilizaveis.td, this.nome)
+      .should("be.visible");
   }
 }

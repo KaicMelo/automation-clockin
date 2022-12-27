@@ -1,9 +1,4 @@
 export enum SeletoresLocalizacoes {
-  iconeMenu = "po-menu-item > .po-menu-item-link > .po-menu-item",
-  tableContainer = ".po-table-main-container",
-  tr = "tr",
-  td = "td",
-  botaoAdicionarLocalizacao = '[p-kind="primary"] > .po-button',
   botaoRemoverLocalizacao = ".po-page-list-actions",
   campoCodigo = ".po-lg-3 > .ng-valid > po-field-container > .po-field-container > .po-field-container-content > .po-input",
   campoDescricao = ".po-lg-5 > .ng-untouched > po-field-container > .po-field-container > .po-field-container-content > .po-input",
@@ -11,6 +6,4 @@ export enum SeletoresLocalizacoes {
   selectFusoHorarioSaoPaulo = ":nth-child(199) > .po-select-item",
   campoEndereco = "#address-input-0 > po-field-container > .po-field-container > .po-field-container-content > .po-input",
   campoRaio = "#address-radius-0 > po-field-container > .po-field-container > .po-field-container-content > .po-input",
-  botaoSalvarLocalizacao = ".po-button-modal-first-action > .po-button",
-  modalAdicionarLocalizacao = ".po-modal-content",
 }
