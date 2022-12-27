@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { UtilsSelectors } from './generic-po/selectors/utils.selectors';
+import { SeletoresReutilizaveis } from './generic-po/selectors/utils.selectors';
 
 export class Login {
 
@@ -14,6 +14,8 @@ export class Login {
   ambiente = "#tenant";
   organizacao = "#organization";
   excluirOrganizacao = ":nth-child(1) > .wrap--w-full > .side-content--right > .cw-btn-subtle";
+
+  timeOut: number = 30000;
 
   escreverLoginESenha(email: string, senha: string): void {
       cy.get(this.email).type(email);
@@ -47,7 +49,7 @@ export class Login {
     cy.contains(this.obterErro, "Incorrect password was used").should("be.visible");
   }
   mensagemAmbienteIncorreto(){
-    cy.contains(UtilsSelectors.li, "Environment not found").should("be.visible");
+    cy.contains(SeletoresReutilizaveis.li, "Tenant not found").should("be.visible");
   }
   mensagemOrganizacaoInvalida(){
     cy.contains(this.obterErro, "Invalid organization, please try again.").should("be.visible");
@@ -60,6 +62,6 @@ export class Login {
     cy.contains(this.ErroNoResetarSenha, "Invalid Email").should("be.visible");
   }
   mensagemInstrucoesPeloEmail(){
-    cy.contains(UtilsSelectors.p, " An email with instructions to reset your password has been sent to ").should("be.visible");
+    cy.contains(SeletoresReutilizaveis.p, " An email with instructions to reset your password has been sent to ",{ timeout: this.timeOut }).should("be.visible");
   }
 }

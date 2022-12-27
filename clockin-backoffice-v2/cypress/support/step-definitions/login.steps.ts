@@ -1,5 +1,5 @@
-import { Login } from "../page-objects/login-page.po";
-import { Given, When,Then } from "cypress-cucumber-preprocessor/steps";
+import { Login } from "../page-objects/login-pagina.po";
+import { When,Then } from "cypress-cucumber-preprocessor/steps";
 
 const login = new Login();
 
