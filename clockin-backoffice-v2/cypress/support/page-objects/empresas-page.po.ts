@@ -51,8 +51,28 @@ export class Empresas {
 
   visualizarEmpresaCadastrada() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
-    cy.get(SeletoresReutilizaveis.tableContainer)
+    cy.get(SeletoresReutilizaveis.tabela)
       .contains(SeletoresReutilizaveis.td, this.nome)
       .should("be.visible");
+  }
+
+  removerEmpresa(){
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresReutilizaveis.tabela)
+      .contains(SeletoresReutilizaveis.tr, this.codigo)
+      .then((row: any) => {
+        const children = row[0].children;
+        cy.get(children[0]).click();
+
+        cy.get(SeletoresReutilizaveis.botaoRemover).contains("Remover").click();
+      });
+      cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+  }
+
+  naoVisualizarEmpresaCadastrada(){
+    cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
+    cy.get(SeletoresReutilizaveis.tabela)
+      .contains(SeletoresReutilizaveis.td, this.codigo, { timeout: this.timeOut })
+      .should("not.exist");
   }
 }

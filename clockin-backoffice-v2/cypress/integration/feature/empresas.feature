@@ -10,3 +10,9 @@ Funcionalidade: Validar a aba empresas
         E pesquiso a empresa cadastrada
         Então devo visualizar a empresa cadastrada na lista de empresas
         
+    Cenario: Excluir empresa
+        Quando acesso a area de empresas
+        E pesquiso a empresa cadastrada
+        E seleciono minha empresa cadastrada, clico em remover
+        E pesquiso a empresa cadastrada
+        Então não devo visualizar a empresa na lista de empresas
