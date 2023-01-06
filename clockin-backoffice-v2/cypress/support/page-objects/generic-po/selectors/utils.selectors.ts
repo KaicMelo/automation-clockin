@@ -1,0 +1,21 @@
+
+export enum SeletoresReutilizaveis {
+  tr = "tr",
+  td = "td",
+  li = 'li',
+  p = 'p',
+  menu = ".po-menu-mobile > .po-icon",
+  botaoRemover = ".po-page-list-actions",
+  email = "#email",
+  senha = "#password",
+  botaoRealizarLogin = ".gate-btn",
+  overlay = ".po-table-overlay-content",
+  iconeMenu = "po-menu-item > .po-menu-item-link > .po-menu-item",
+  botaoAdicionar = '[p-kind="primary"] > .po-button',
+  botaoSalvar = ".po-button-modal-first-action > .po-button",
+  modalAdicionar = ".po-modal-content",
+  tabela = ".po-table-main-container",
+  caixaDeFiltro = ".po-page-list-filter-wrapper > .po-field-container-content > .po-input",
+  botaoCaixaDeFiltro = ".po-field-container-content > .po-field-icon-container-right > .po-icon",
+  disclaimerRemover = '.po-disclaimer-remove',
+}

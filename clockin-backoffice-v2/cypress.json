@@ -1,0 +1,18 @@
+{
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports/mochareports",
+    "overwrite": true,
+    "html": true,
+    "json": false,
+    "timestamp": "mmddyyyy-HHMMss"
+  },
+  "screenshotOnRunFailure": true,
+  "screenshotsFolder": "cypress/reports/mochareports/assets",
+  "chromeWebSecurity": false,
+  "integrationFolder": "cypress/integration",
+  "baseUrl": "https://totvsclockin.carol.ai/totvsrm/apps/dev/totvsrmbocdsdm/0.0.1/index.html",
+  "pluginsFile": "cypress/plugins/index.js",
+  "video": false,
+  "screenshotOnRunPass": false
+}
