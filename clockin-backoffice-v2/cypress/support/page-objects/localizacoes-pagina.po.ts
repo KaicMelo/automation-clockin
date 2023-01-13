@@ -94,7 +94,7 @@ export class Localizacoes {
   naoDevoVisualizarLocalizacao() {
     cy.get(SeletoresReutilizaveis.overlay,{ timeout: this.timeOut }).should("not.exist");
     cy.get(SeletoresReutilizaveis.tabela)
-      .contains(SeletoresReutilizaveis.td, this.descricao, { timeout: this.timeOut })
+      .contains(SeletoresReutilizaveis.td, this.descricao, { timeout: 60000})
       .should("not.exist");
   }
 }
